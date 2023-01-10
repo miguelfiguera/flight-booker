@@ -26,6 +26,33 @@ codes.each do |c|
     airports<<airport
 end
 
+def timing
+    result=[]
+    t1=Time.now.to_i
+    t2=Time.new(2023,2,2).to_i
+    result<<Time.at(rand(t1..t2))
+    until result.length == 2
+    lol=Time.at(rand(t1..t2))
+    result<< lol if lol>result[0]
+    end
+end
+
 other_airports=airport.reverse
+
+8.times do 
+    arr=timing
+    i=0
+    Flight.create(
+        departure_id:airports[i],
+        arrival_id: other_airports[i],
+        departure_time:arr[0],
+        airline: airlines.sample,
+        flight_number:rand(1000),
+        duration: arr[1],
+        passenger_number: rand(32)
+    )
+end
+
+
 
 
