@@ -39,10 +39,9 @@ def timing
 end
 
 other_airports=airports.reverse
-
+i=0
 8.times do 
     arr=timing
-    i=0
     Flight.create(
         departure_id:airports[i].id,
         arrival_id: other_airports[i].id,
@@ -52,6 +51,7 @@ other_airports=airports.reverse
         duration: arr[1],
         passenger_number: rand(32)
     )
+    i++
 end
 
 
