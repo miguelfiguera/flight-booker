@@ -35,16 +35,17 @@ def timing
     lol=Time.at(rand(t1..t2))
     result<< lol if lol>result[0]
     end
+    return result
 end
 
-other_airports=airport.reverse
+other_airports=airports.reverse
 
 8.times do 
     arr=timing
     i=0
     Flight.create(
-        departure_id:airports[i],
-        arrival_id: other_airports[i],
+        departure_id:airports[i].id,
+        arrival_id: other_airports[i].id,
         departure_time:arr[0],
         airline: airlines.sample,
         flight_number:rand(1000),
