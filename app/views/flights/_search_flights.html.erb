@@ -1,0 +1,10 @@
+<%=form_with(url: '/flight', method: :get) do |f|%>
+
+<%=select_tag(:departures,options_for_select(@departures))%>
+<%=select_tag(:arrivals,options_for_select(@arrivals))%>
+<%=select_tag(:dates,options_for_select(@dates))%>
+<%=f.select(:seats,(1..4), selected: params[:passenger_number])%>
+
+<%=f.submit 'Search'%>
+
+<%end%>
