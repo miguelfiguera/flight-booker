@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-
 airlines=[
 'Copacabana',
 'american nolines',
@@ -41,16 +40,17 @@ end
 other_airports=airports.reverse
 i=0
 
-8.times do 
+25.times do
     arr=timing
+    a=rand(8)
+    b= rand(8)  
     Flight.create(
-        departure_id:airports[i].id,
-        arrival_id: other_airports[i].id,
+        departure_airport: airports[a],
+        arrival_airport: other_airports[b],
         departure_time:arr[0],
         airline: airlines.sample,
         flight_number:rand(1000),
         duration: arr[1],
         passenger_number: rand(32)
     )
-    i+=1
 end
