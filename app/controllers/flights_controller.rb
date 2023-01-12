@@ -1,9 +1,16 @@
 class FlightsController < ApplicationController
     def index
-
+        ##collections
         @departures=Flight.all.map{|f|[f.departure_airport.code]}.uniq
         @arrivals=Flight.all.map{|f|[f.arrival_airport.code]}.uniq
         @dates=Flight.all.map{|d| [d.departure_time.strftime("%d/%m/%Y")]}.sort{|a,b| a<=>b}.uniq
+        ##----
+
+
+
+
+        
+        
         @flights=Flight.all
 
     end
