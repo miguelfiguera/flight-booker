@@ -3,7 +3,7 @@ class FlightsController < ApplicationController
 
         @departures=Flight.all.map{|f|[f.departure_airport.code]}.uniq
         @arrivals=Flight.all.map{|f|[f.arrival_airport.code]}.uniq
-        @dates=Flight.all.map{|d| [d.departure_time.strftime("%d/%m/%Y")]}
+        @dates=Flight.all.map{|d| [d.departure_time.strftime("%d/%m/%Y")]}.sort{|a,b| a<=>b}.uniq
         @flights=Flight.all
 
     end
@@ -17,6 +17,8 @@ class FlightsController < ApplicationController
         @arrivals=Flight.all.map{|f|[f.arrival_airport.code,f.arrival_airport.id]}
         @dates=Flight.all.map{|d| [d.departure_time]}
 
+
+        
         @flight=Flight.find(params[:id])
     end
 

@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  resources :airport
-  resources :flight
+  resources :airports
+  resources :flights
 
   root "flights#index"
 end
