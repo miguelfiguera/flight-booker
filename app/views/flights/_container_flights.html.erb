@@ -14,7 +14,7 @@
     <%num=32 - f.passenger_number%>
 <h6>Departing: <%=departure.code%></h6>
 <h6>Destination: <%=arraival.code%></h6>
-<h6>Date: <%=f.departure_time.strftime("%d/%m/%Y")%></h6>
+<h6>Date: <%=f.date_formatted%></h6>
 <h6>Seats Available: <%=num > 0 ? num : 'No Vacancy'%></h6>
 
 </li>

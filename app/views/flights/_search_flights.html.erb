@@ -2,10 +2,11 @@
 
 <%=form_with(url: flights_path, method: :get) do |f|%>
 
-<h5>Departures: <%=f.select(:departures,options_for_select(@departures))%></h5>
-<h5>Arrivals:  <%=f.select(:arrivals,options_for_select(@arrivals))%></h5>
-<h5>Date:  <%=f.select(:dates,options_for_select(@dates))%></h5>
-<h5>Number of seats:  <%=f.select(:seats,(1..4), selected: params[:passenger_number])%></h5>
+
+<h5>Departures: <%=f.select(:departure_id,options_for_select(@departures), selected: params[:departure_id])%></h5>
+<h5>Arrivals:  <%=f.select(:arrival_id,options_for_select(@arrivals), selected: params[:arrival_id])%></h5>
+<h5>Date:  <%=f.select(:departure_time,options_for_select(@dates), selected: params[:departure_time])%></h5>
+<h5>Number of seats:  <%=f.select(:passenger_number,(1..4), selected: params[:passenger_number])%></h5>
 
 <%=f.submit 'Search'%>
 

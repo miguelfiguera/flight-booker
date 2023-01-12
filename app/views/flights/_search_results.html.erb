@@ -1,0 +1,18 @@
+<h4>Search results</h4> <br>
+
+
+<ul>
+        <%@search_results.each do |f|%>
+
+
+
+<li> <%departure=Airport.find(f.departure_id)%>
+    <%arraival=Airport.find(f.arrival_id)%>
+    <%num=32 - f.passenger_number%>
+<h6>Departing: <%=departure.code%></h6>
+<h6>Destination: <%=arraival.code%></h6>
+<h6>Date: <%=f.departure_time.strftime("%d/%m/%Y")%></h6>
+<h6>Seats Available: <%=num > 0 ? num : 'No Vacancy'%></h6>
+</li>
+<%end%>
+</ul>
