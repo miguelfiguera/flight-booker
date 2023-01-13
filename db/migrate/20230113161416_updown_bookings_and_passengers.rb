@@ -1,10 +1,10 @@
 class UpdownBookingsAndPassengers < ActiveRecord::Migration[7.0]
-  def change
-    def up
+  def up
       add_column :bookings, :flight_id,:integer
       add_column :bookings, :passenger_id, :integer
       add_column :passengers, :name, :string
       add_column :passengers, :booking_id, :integer
+      add_column :passengers, :email, :string
   end
 
   def down
