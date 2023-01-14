@@ -1,0 +1,15 @@
+<h1>The booking with passengers and all that</h1>
+
+<p>Booking ID: <%=@booking.id%></p> <br>
+<%@pass=Passenger.where(booking_id:@booking.id)%> <br>
+<%@pass.each do |pass|%> <br>
+<%=pass.name%> <br>
+<%=pass.email%> <br>
+<%end%>
+<%@bird=Flight.find(@booking.flight_id)%> <br>
+<%=@bird.airline%> <br>
+<%=@bird.date_formatted%> <br>
+
+
+<br>
+<%=link_to 'lets go HOME', root_path%>

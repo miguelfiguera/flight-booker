@@ -15,7 +15,6 @@
 <li>Passengers: <%=@flight.passenger_number%></li>
 <li>Departure: <%=@flight.date_formatted%></li>
 </ul>
-
 <%=form_with(model: @booking, url: bookings_path) do |f|%>
 <h5>Flight ID: <%=@flight.id%></h5>
 <%=f.hidden_field :flight_id, value: @flight.id%>
