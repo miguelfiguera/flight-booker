@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
     def new
         @booking = Booking.new
         @flight = Flight.find(params[:flight_id])
+        @booking.passengers.build ##This is necessary for the passengers form to be created.
     end
 
     def create

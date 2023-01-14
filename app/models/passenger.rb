@@ -1,4 +1,4 @@
 class Passenger < ApplicationRecord
-    has_many :bookings, inverse_of: :passenger
+    belongs_to :booking, inverse_of: :passengers
     has_many :flights, through: :bookings
 end
