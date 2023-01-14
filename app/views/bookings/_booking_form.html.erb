@@ -16,10 +16,11 @@
 <li>Departure: <%=@flight.date_formatted%></li>
 </ul>
 
-<%=form_with(model: @booking) do |f|%>
+<%=form_with(model: @booking, url: bookings_path) do |f|%>
 <h5>Flight ID: <%=@flight.id%></h5>
 <%=f.hidden_field :flight_id, value: @flight.id%>
 <h4>Passenger Info:</h4>
+
 <%=f.fields_for :passengers do |sf|%>
 <h5><%=sf.label :name%></h5>
     <%=sf.text_field :name%>

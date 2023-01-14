@@ -1,14 +1,13 @@
 class BookingsController < ApplicationController
     def new
-        @flight=Flight.find(params[:flight_id])
-        @booking=Booking.new
-        @passenger=Passenger.new
+        @booking = Booking.new
+        @flight = Flight.find(params[:flight_id])
     end
 
     def create
-        @flight = Flight.find(booking_params[:flight_id])
-        @booking = @flight.bookings.build(booking_params)
-        
+        @flight = Flight.find_by(booking_params[:flight_id])
+        @booking =@flight.bookings.build(booking_params)
+
         if @booking.save
             redirect_to root_path
         else
@@ -29,7 +28,7 @@ class BookingsController < ApplicationController
 
 
     def booking_params
-        params.require(:booking).permit(:flight_id,passengers_attributes: [:name, :email])
+        params.require(:booking).permit(:passengers,:flight_id,passengers_attributes: [:name,:passenger_id, :email])
     end
 
 end
