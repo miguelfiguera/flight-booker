@@ -1,18 +1,30 @@
-<h4>Search results</h4> <br>
 
+<%if @search_results.present?%>
+<%=form_with(model: @flight, url: new_booking_path, method: :get) do |form|%>
 
-<ul>
-        <%@search_results.each do |f|%>
+    
+    <h3>Search Results</h3>
 
+        <%@search_results.each do |fly|%>
+    <ul>
+    <li>
+    <%num=32-fly.passenger_number%>
+    <%no_vac='NO VACANCY FOR YOU IN THIS FLIGHT!'%>
+    <%message="Available seats : #{num}"%>
+        <%="Flight id: #{fly.id}"%>
+        <%=fly.departure_airport.code%>
+        <%=fly.arrival_airport.code%>
+        <%=fly.date_formatted%>
+        <%=num > 0 ? message : no_vac %>
 
+        <%=form.radio_button :flight_id, fly.id%>
 
-<li> <%departure=Airport.find(f.departure_id)%>
-    <%arraival=Airport.find(f.arrival_id)%>
-    <%num=32 - f.passenger_number%>
-<h6>Departing: <%=departure.code%></h6>
-<h6>Destination: <%=arraival.code%></h6>
-<h6>Date: <%=f.departure_time.strftime("%d/%m/%Y")%></h6>
-<h6>Seats Available: <%=num > 0 ? num : 'No Vacancy'%></h6>
-</li>
+        <%end%>
+
+    <%=form.submit "Book Flight"%>
+    </li>
+    </ul>
 <%end%>
-</ul>
+<%else%>
+<h3><%='Please search a flight!' %></h3>
+<%end%>

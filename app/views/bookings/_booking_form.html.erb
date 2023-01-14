@@ -1,0 +1,32 @@
+  <% if @booking.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this booking from being created:</h2>
+      <ul>
+        <% @booking.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+    </div>
+<%end%>
+
+<h5><strong>Flight Info:</strong></h5>
+<ul>
+<li>From: <%=@flight.departure_airport%></li>
+<li>To: <%=@flight.arrival_airport%></li>
+<li>Passengers: <%=@flight.passenger_number%></li>
+<li>Departure: <%=@flight.departure_time%></li>
+</ul>
+
+<%=form_with(model: @booking) do |f|%>
+<h5>Flight ID: <%=@flight.id%></h5>
+<%f.hidden_field :flight_id, value: @flight.id%>
+<h4>Passenger Info:</h4>
+<%f.fields_for :passengers do |sf|%>
+<h5><%=sf.label :name%></h5>
+    <%=sf.text_field :name%>
+    <h5><%=sf.label :email%></h5>
+    <%=sf.text_field :email%>
+    <%end%>
+<%=f.subtmit 'Create Flight Booking!'%>
+</li>
+</ul>
+<%end%>

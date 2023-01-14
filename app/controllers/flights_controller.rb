@@ -10,7 +10,6 @@ class FlightsController < ApplicationController
         ##
 
         @search_results=Flight.user_search(search_params)
-
         
         
         @flights=Flight.all
