@@ -1,0 +1,16 @@
+Hello, <%=@booking.passenger.email%>!
+
+This is your confirmation email.
+
+The info of your flight is:
+
+Airline: <%=@booking.airline%>
+Flight number: <%=@booking.flight_number%>
+Departure airport: <%=Airport.find(@booking.departure_id)%>
+Arrival airport: <%=Airport.find(@booking.arrival_id)%>
+
+If any of this is incorrect, please contact customer support.
+
+Thanks for joining us and have a safe travel!
+
+DO NOT SHARE THE SECRET KEY OF YOUR CREDIT/DEBIT CARD WITH ANYONE.

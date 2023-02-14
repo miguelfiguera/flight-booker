@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+<div> <h1>Hello, <%=@booking.passenger.email%>!</h1> <br>
+
+<p> This is your confirmation email.</p> <br>
+
+<p> The info of your flight is:</p> <br>
+<ul>
+<li>Airline: <%=@booking.airline%></li>
+<li>Flight number: <%=@booking.flight_number%></li>
+<li>Departure airport: <%=Airport.find(@booking.departure_id)%></li>
+<li>Arrival airport: <%=Airport.find(@booking.arrival_id)%></li>
+
+</ul> <br>
+
+<p> If any of this is incorrect, please contact customer support.</p> <br>
+
+<p> Thanks for joining us and have a safe travel!</p> <br>
+
+<p> DO NOT SHARE THE SECRET KEY OF YOUR CREDIT/DEBIT CARD WITH ANYONE.</p> <br>
+
+</div>
+
+</body>
+</html>
