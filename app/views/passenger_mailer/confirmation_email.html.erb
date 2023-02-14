@@ -10,16 +10,16 @@
     
 
 
-<div> <h1>Hello, <%=@booking.passenger.email%>!</h1> <br>
+<div> <h1>Hello, <%=@passenger.email%>!</h1> <br>
 
 <p> This is your confirmation email.</p> <br>
 
 <p> The info of your flight is:</p> <br>
 <ul>
-<li>Airline: <%=@booking.airline%></li>
-<li>Flight number: <%=@booking.flight_number%></li>
-<li>Departure airport: <%=Airport.find(@booking.departure_id)%></li>
-<li>Arrival airport: <%=Airport.find(@booking.arrival_id)%></li>
+<li>Airline: <%=@flight.airline%></li>
+<li>Flight number: <%=@flight.flight_number%></li>
+<li>Departure airport: <%=@flight.departure_id%></li>
+<li>Arrival airport: <%=@flight.arrival_id%></li>
 
 </ul> <br>
 

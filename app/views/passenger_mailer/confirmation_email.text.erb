@@ -1,13 +1,13 @@
-Hello, <%=@booking.passenger.email%>!
+Hello, <%=@passenger.email%>!
 
 This is your confirmation email.
 
 The info of your flight is:
 
-Airline: <%=@booking.airline%>
-Flight number: <%=@booking.flight_number%>
-Departure airport: <%=Airport.find(@booking.departure_id)%>
-Arrival airport: <%=Airport.find(@booking.arrival_id)%>
+Airline: <%=@flight.airline%>
+Flight number: <%=@flight.flight_number%>
+Departure airport: <%=@flight.departure_id%>
+Arrival airport: <%=@flight.arrival_id%>
 
 If any of this is incorrect, please contact customer support.
 
